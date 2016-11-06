@@ -17,9 +17,13 @@ import webdriver.elements.Link;
             super(By.xpath("//title"), "Onliner.by");
         }
 
-        public void assertString(){
+        public void assertLinkPresent(){
             topMenuItem.waitForIsElementPresent();
             Assert.assertTrue(topMenuItem.isPresent());
+        }
+
+        public void clickMenuItem () {
+            topMenuItem.click();
         }
 
     }

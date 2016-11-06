@@ -1,31 +1,32 @@
 package onliner;
 
-import demo.test.forms.TutSearchForm;
+import onliner.forms.CatalogOnlinerPage;
+import onliner.forms.CatalogOnlinerTVs;
 import onliner.forms.OnlinerHomePage;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
 import webdriver.BaseTest;
 
-/**
- * Created by Николай on 04.11.2016.
- */
-public class FindUsingFiltersTest {
+public class FindUsingFiltersTest extends BaseTest {
     public void runTest() {
 
-        //logger.step(1);
-        System.out.println("Test if Catalog menu item is present");;
+        logger.step(1);
         OnlinerHomePage onlinerHomePage = new OnlinerHomePage();
-        onlinerHomePage.assertString();
-        //tsf.assertLogo();
+        onlinerHomePage.assertLinkPresent();
 
-        /*logger.step(2);
-        tsf.searchFor("A1QA");
+        logger.step(2);
+        onlinerHomePage.clickMenuItem();
 
         logger.step(3);
-        tsf.assertA1QAString();*/
+        CatalogOnlinerPage catalogOnlinerPage = new CatalogOnlinerPage();
+        catalogOnlinerPage.navigateMenuItem();
+
+        logger.step(4);
+        CatalogOnlinerTVs catalogOnlinerTVs = new CatalogOnlinerTVs();
+        catalogOnlinerTVs.setManufacturerFilter();
+        catalogOnlinerTVs.maxPriceFilter(1000);
+        catalogOnlinerTVs.setReleasedAfterYearFilter(2013);
+        catalogOnlinerTVs.setDiagonalFromFilter("39");
+        catalogOnlinerTVs.setDiagonalToFilter("42");
+
+        logger.step(4);
     }
 }

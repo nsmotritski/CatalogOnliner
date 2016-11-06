@@ -29,10 +29,6 @@ public class Button extends BaseElement {
     	return this.getElement().isEnabled();
     }
 
-
-	
-
-
 	public Button(By locator) {
 		super(locator);
 	}
