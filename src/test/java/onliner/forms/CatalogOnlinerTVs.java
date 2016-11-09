@@ -5,9 +5,12 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import webdriver.BaseForm;
+import webdriver.elements.BaseElement;
 import webdriver.elements.Checkbox;
 import webdriver.elements.Dropdown;
 import webdriver.elements.TextBox;
+
+import java.util.ArrayList;
 import java.util.List;
 
 public class CatalogOnlinerTVs extends BaseForm {
@@ -42,19 +45,19 @@ public class CatalogOnlinerTVs extends BaseForm {
         this.diagonalToFilter.setText(s);
     }
 
-    public void getSearchResults (WebDriver driver) {
-        searchResults = driver.findElements(By.xpath(""));
+    public void applyFilters (Integer price, Integer releaseYear, String diagonalFrom, String diagonalTo) {
+        setManufacturerFilter();
+        maxPriceFilter(price);
+        setReleasedAfterYearFilter(releaseYear);
+        setDiagonalFromFilter(diagonalFrom);
+        setDiagonalToFilter(diagonalTo);
     }
 
     public boolean checkResults (WebDriver driver) {
-        SearchItem searchItem = new SearchItem();
-        searchItem.searchItemTitle = driver.findElement(By.xpath(".//")).getText();
+        List<BaseElement> searchItemList = new ArrayList<BaseElement>();
+        //searchItemList = browser.(By.xpath(".//div[@id='schema-products']/div"));
         return true;
     }
 
-    /*В части «Подбор по параметрам» указать:
-    Производитель = Samsung
-            Цена = до 1000 руб
-    Дата выхода на рынок = не ранее 2013
-    Диагональ от 39" до 42"*/
+
 }
