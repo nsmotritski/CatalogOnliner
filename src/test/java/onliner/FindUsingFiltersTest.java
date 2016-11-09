@@ -5,6 +5,7 @@ import onliner.forms.CatalogOnlinerTVs;
 import onliner.forms.OnlinerHomePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 import webdriver.BaseTest;
 import webdriver.Browser;
 
@@ -15,15 +16,15 @@ public class FindUsingFiltersTest extends BaseTest {
     public void runTest() {
 
         logger.step(1);
-        Browser.getInstance();
         OnlinerHomePage onlinerHomePage = new OnlinerHomePage();
-        onlinerHomePage.assertLinkPresent();
+        onlinerHomePage.assertLogo();
 
         logger.step(2);
         onlinerHomePage.clickMenuItem();
 
         logger.step(3);
         CatalogOnlinerPage catalogOnlinerPage = new CatalogOnlinerPage();
+        catalogOnlinerPage.assertLogo();
         catalogOnlinerPage.navigateMenuItem();
 
         logger.step(4);
@@ -37,5 +38,6 @@ public class FindUsingFiltersTest extends BaseTest {
         logger.step(4);
         List<WebElement> searchItemList = new ArrayList<WebElement>();
         searchItemList = browser.getDriver().findElements(By.xpath(".//div[@id='schema-products']"));
+        Assert.assertTrue(true,"End-of-test assertion passed");
     }
 }
