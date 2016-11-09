@@ -3,7 +3,7 @@
 	
 	<test name="Functional Tests" preserve-order="true">
 		<classes>
- 			<class name="onliner.FindUsingFiltersTest" />
+ 			<class name="demo.test.DemoTest" />
         </classes>
 	</test>
 </suite>
