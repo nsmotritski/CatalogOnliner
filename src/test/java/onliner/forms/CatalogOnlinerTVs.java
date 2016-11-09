@@ -19,7 +19,7 @@ public class CatalogOnlinerTVs extends BaseForm {
     private List<WebElement> searchResults;
 
     public CatalogOnlinerTVs() {
-        super(By.xpath("//title"), "Купить телевизор в Минске");
+        super(By.xpath("//div[@id='fast-search']/form/input[@data-project='catalog_public']"), "Catalog Onliner.by");
     }
 
     public void setManufacturerFilter () {
