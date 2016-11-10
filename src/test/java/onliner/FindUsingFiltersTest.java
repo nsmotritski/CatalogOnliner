@@ -17,14 +17,12 @@ public class FindUsingFiltersTest extends BaseTest {
 
         logger.step(1);
         OnlinerHomePage onlinerHomePage = new OnlinerHomePage();
-        onlinerHomePage.assertLogo();
 
         logger.step(2);
         onlinerHomePage.clickMenuItem();
 
         logger.step(3);
         CatalogOnlinerPage catalogOnlinerPage = new CatalogOnlinerPage();
-        catalogOnlinerPage.assertLogo();
         catalogOnlinerPage.navigateMenuItem();
 
         logger.step(4);
