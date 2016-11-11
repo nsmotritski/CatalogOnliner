@@ -65,6 +65,11 @@ public class Dropdown extends BaseElement {
         type(value);
     }
 
+    public void setValue(final String value) {
+        Select dropdown = new Select(this.getElement());
+        dropdown.selectByValue(value);
+    }
+
 
     /**
      * Gets value of field

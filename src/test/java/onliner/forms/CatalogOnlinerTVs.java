@@ -39,16 +39,12 @@ public class CatalogOnlinerTVs extends BaseForm {
     }
 
     public void setDiagonalFromFilter(String s) {
-        /*this.diagonalFromFilter.click();
-        this.diagonalFromFilter.setText(s);*/
-        Select dropdown = new Select(diagonalFromFilter.getElement());
-        dropdown.selectByValue(s);
+        diagonalFromFilter.setValue(s);
 
     }
 
     public void setDiagonalToFilter(String s) {
-        Select dropdown = new Select(diagonalToFilter.getElement());
-        dropdown.selectByValue(s);
+        diagonalToFilter.setValue(s);
     }
 
     public void applyFilters (Integer price, Integer releaseYear, String diagonalFrom, String diagonalTo) {
