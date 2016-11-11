@@ -7,7 +7,7 @@ import webdriver.elements.Label;
 import webdriver.elements.Link;
 
 public class CatalogOnlinerPage extends BaseForm {
-    private Link menuItemLink = new Link(By.xpath("//div[@class='catalog-bar']/ul/li/a[.='Телевизоры']"));
+    private Link menuItemLink = new Link(By.xpath("//div[@class='catalog-bar']/ul/li/a[.='Телевизоры']"),"MenuItemLink");
     //div[@class='catalog-bar']/ul/li/a[.='Телевизоры']
     //ul/li/span /descendant::a[.='Телевизоры']
     private Label lbLogo = new Label(By.xpath(".//img[@alt='Onliner']"),"catalog onliner logo");

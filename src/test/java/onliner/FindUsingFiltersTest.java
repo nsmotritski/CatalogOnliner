@@ -3,12 +3,14 @@ package onliner;
 import onliner.forms.CatalogOnlinerPage;
 import onliner.forms.CatalogOnlinerTVs;
 import onliner.forms.OnlinerHomePage;
+import org.codehaus.jackson.io.UTF8Writer;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import webdriver.BaseTest;
 import webdriver.Browser;
 
+import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,7 +36,11 @@ public class FindUsingFiltersTest extends BaseTest {
 
         logger.step(4);
         List<WebElement> searchItemList = new ArrayList<WebElement>();
-        //searchItemList = browser.getDriver().findElements(By.xpath(".//div[@id='schema-products']"));
+        searchItemList = browser.getDriver().findElements(By.xpath(".//div[@id='schema-products']"));
+        for (WebElement we: searchItemList) {
+            logger.info(we.getText());
+        }
+        logger.info("Final line before assert");
         Assert.assertTrue(true,"End-of-test assertion passed");
     }
 }
