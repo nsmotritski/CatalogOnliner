@@ -17,6 +17,7 @@ public class FindUsingFiltersTest extends BaseTest {
 
         logger.step(1);
         OnlinerHomePage onlinerHomePage = new OnlinerHomePage();
+        browser.windowMaximise();
 
         logger.step(2);
         onlinerHomePage.clickMenuItem();

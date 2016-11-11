@@ -10,6 +10,8 @@ import javax.naming.NamingException;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -47,7 +49,7 @@ public final class Browser {
 
 	// browsers
 	private static Browser instance;
-	private static RemoteWebDriver driver;
+	private static RemoteWebDriver 	driver;
 	public static PropertiesResourceManager props;
 
 	// поля класса
@@ -66,10 +68,11 @@ public final class Browser {
 	 */
 	private Browser() {
 		Logger.getInstance().info(String.format(getLoc("loc.browser.ready"), currentBrowser.toString()));
+
 	}
 
 	/**
-	 * Checks is Browser slive
+	 * Checks is Browser alive
 	 * @return true\false
 	 */
 	public boolean isBrowserAlive() {
@@ -143,7 +146,7 @@ public final class Browser {
 		props = new PropertiesResourceManager(PROPERTIES_FILE);
 		timeoutForPageLoad = props.getProperty(DEFAULT_PAGE_LOAD_TIMEOUT);
 		timeoutForCondition = props.getProperty(DEFAULT_CONDITION_TIMEOUT);
-	
+
 
 	
 		
@@ -185,12 +188,18 @@ public final class Browser {
 		// Logger.getInstance().info("waitForPageToLoad ended");
 	}
 
-	
+	public void pageScrollDown () {
+		try {
+			driver.executeScript("window.scrollBy(0,250)", "");
+		} catch (Exception e) {
+			//A lot of browsers crash here
+		}
+	}
 
 	
 	
 
-	
+
 
 	
 	
@@ -201,7 +210,8 @@ public final class Browser {
 	 */
 	public void windowMaximise() {
 		try {
-			driver.executeScript("if (window.screen) {window.moveTo(0, 0);window.resizeTo(window.screen.availWidth,window.screen.availHeight);};");
+			//driver.executeScript("if (window.screen) {window.moveTo(0, 0);window.resizeTo(window.screen.availWidth,window.screen.availHeight);};");
+			driver.manage().window().maximize();
 		} catch (Exception e) {
 			//A lot of browsers crash here
 		}

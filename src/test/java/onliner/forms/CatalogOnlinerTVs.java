@@ -38,10 +38,12 @@ public class CatalogOnlinerTVs extends BaseForm {
     }
 
     public void setDiagonalFromFilter(String s) {
+        this.diagonalFromFilter.click();
         this.diagonalFromFilter.setText(s);
     }
 
     public void setDiagonalToFilter(String s) {
+        this.diagonalToFilter.click();
         this.diagonalToFilter.setText(s);
     }
 
@@ -49,6 +51,7 @@ public class CatalogOnlinerTVs extends BaseForm {
         setManufacturerFilter();
         maxPriceFilter(price);
         setReleasedAfterYearFilter(releaseYear);
+        browser.pageScrollDown();
         setDiagonalFromFilter(diagonalFrom);
         setDiagonalToFilter(diagonalTo);
     }
