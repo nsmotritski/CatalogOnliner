@@ -4,6 +4,7 @@ import onliner.SearchItem;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 import webdriver.BaseForm;
 import webdriver.elements.BaseElement;
 import webdriver.elements.Checkbox;
@@ -38,13 +39,16 @@ public class CatalogOnlinerTVs extends BaseForm {
     }
 
     public void setDiagonalFromFilter(String s) {
-        this.diagonalFromFilter.click();
-        this.diagonalFromFilter.setText(s);
+        /*this.diagonalFromFilter.click();
+        this.diagonalFromFilter.setText(s);*/
+        Select dropdown = new Select(diagonalFromFilter.getElement());
+        dropdown.selectByValue(s);
+
     }
 
     public void setDiagonalToFilter(String s) {
-        this.diagonalToFilter.click();
-        this.diagonalToFilter.setText(s);
+        Select dropdown = new Select(diagonalToFilter.getElement());
+        dropdown.selectByValue(s);
     }
 
     public void applyFilters (Integer price, Integer releaseYear, String diagonalFrom, String diagonalTo) {

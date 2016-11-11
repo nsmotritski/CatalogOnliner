@@ -2,8 +2,9 @@ package webdriver.elements;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.support.ui.Select;
 
-    /**
+/**
      * Created by Николай on 05.11.2016.
      */
 public class Dropdown extends BaseElement {
@@ -63,6 +64,7 @@ public class Dropdown extends BaseElement {
         element.clear();
         type(value);
     }
+
 
     /**
      * Gets value of field

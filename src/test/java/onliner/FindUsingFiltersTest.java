@@ -28,8 +28,9 @@ public class FindUsingFiltersTest extends BaseTest {
 
         logger.step(4);
         CatalogOnlinerTVs catalogOnlinerTVs = new CatalogOnlinerTVs();
-        catalogOnlinerTVs.applyFilters(1000, 2013, "39", "42");
+        catalogOnlinerTVs.applyFilters(1000, 2013, "390", "420");
         logger.info("All Filters applied correctly");
+        
 
         logger.step(4);
         List<WebElement> searchItemList = new ArrayList<WebElement>();
