@@ -70,21 +70,21 @@ public class CatalogOnlinerTVs extends BaseForm {
     public boolean checkResults (List<WebElement> elements, String manufacturerFilterValue, String maxPriceFilterValue, String releasedAfterYearFilterValue, String diagonalFromFilterValue, String diagonalToFilterValue) {
         boolean result = true;
         for (WebElement element:elements) {
-            logger.info("Checking element:" + element.toString());
+            logger.info("Checking element:" + element.getText());
             if (element.getText().contains(manufacturerFilterValue)) {
-                logger.info("Manufacturer OK for element" + element.toString());
+                logger.info("Manufacturer OK for element" + element.getText());
             }
             else {result = false;}
             if (element.getText().contains(maxPriceFilterValue)) {
-                logger.info("MaxPrice OK for element" + element.toString());
+                logger.info("MaxPrice OK for element" + element.getText());
             }
             else {result = false;}
-            if (element.getText().contains(releasedAfterYearFilterValue)) {
-                logger.info("Release Year OK for element" + element.toString());
+/*            if (element.getText().contains(releasedAfterYearFilterValue)) {
+                logger.info("Release Year OK for element" + element.getText());
             }
-            else {result = false;}
+            else {result = false;}*/
             if ((Integer.parseInt(diagonalFromFilterValue)<=getTVDiagonal(element.getText())) && (getTVDiagonal(element.getText())<=Integer.parseInt(diagonalToFilterValue))) {
-                logger.info("Manufacturer OK for element" + element.toString());
+                logger.info("Manufacturer OK for element" + element.getText());
             }
             else {result = false;}
         }

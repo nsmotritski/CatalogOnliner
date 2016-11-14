@@ -42,6 +42,6 @@ public class FindUsingFiltersTest extends BaseTest {
             logger.info(we.getText());
         }
         logger.info("Final line before assert");
-        Assert.assertTrue(true,"End-of-test assertion passed");
+        Assert.assertTrue(catalogOnlinerTVs.checkResults(searchItemList,"Samsung","1000","","39","42"));
     }
 }
