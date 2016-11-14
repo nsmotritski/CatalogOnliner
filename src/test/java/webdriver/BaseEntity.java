@@ -245,9 +245,4 @@ public abstract class BaseEntity {
 		logger.info(String.format("----==[ %1$s ]==----", info));
 	}
 
-	
-
-	
-	
-
 }

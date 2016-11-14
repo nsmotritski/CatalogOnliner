@@ -6,13 +6,13 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import webdriver.BaseForm;
-import webdriver.elements.BaseElement;
-import webdriver.elements.Checkbox;
-import webdriver.elements.Dropdown;
-import webdriver.elements.TextBox;
+import webdriver.Browser;
+import webdriver.elements.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class CatalogOnlinerTVs extends BaseForm {
     private Checkbox manufacturerFilter = new Checkbox(By.xpath("//span[@class='schema-filter__checkbox-text' and .='Samsung']"),"Manufacturer");
@@ -20,7 +20,7 @@ public class CatalogOnlinerTVs extends BaseForm {
     private TextBox releasedAfterYearFilter = new TextBox(By.xpath(".//*[@id='schema-filter']//input[@placeholder='2011']"),"Released after year");
     private Dropdown diagonalFromFilter = new Dropdown(By.xpath("//span[.='Диагональ']/../following-sibling::div/div/div/select[contains(@data-bind,'from')]"),"Diagonal min");
     private Dropdown diagonalToFilter = new Dropdown(By.xpath("//span[.='Диагональ']/../following-sibling::div/div/div/select[contains(@data-bind,\"to\")]"),"Diagonal max");
-    private List<WebElement> searchResults;
+
 
     public CatalogOnlinerTVs() {
         super(By.xpath("//div[@id='fast-search']/form/input[@data-project='catalog_public']"), "Catalog Onliner.by");
@@ -56,10 +56,39 @@ public class CatalogOnlinerTVs extends BaseForm {
         setDiagonalToFilter(diagonalTo);
     }
 
-    public boolean checkResults (WebDriver driver) {
-        List<BaseElement> searchItemList = new ArrayList<BaseElement>();
-        //searchItemList = browser.(By.xpath(".//div[@id='schema-products']/div"));
-        return true;
+    private static Integer getTVDiagonal (String text) {
+        Pattern pattern = Pattern.compile("[0-9][0-9]\"");
+        Matcher matcher = pattern.matcher(text);
+        String s = "";
+        while (matcher.find()) {
+            s = matcher.group(1);
+        }
+        return Integer.parseInt(s);
+    }
+
+
+    public boolean checkResults (List<WebElement> elements, String manufacturerFilterValue, String maxPriceFilterValue, String releasedAfterYearFilterValue, String diagonalFromFilterValue, String diagonalToFilterValue) {
+        boolean result = true;
+        for (WebElement element:elements) {
+            logger.info("Checking element:" + element.toString());
+            if (element.getText().contains(manufacturerFilterValue)) {
+                logger.info("Manufacturer OK for element" + element.toString());
+            }
+            else {result = false;}
+            if (element.getText().contains(maxPriceFilterValue)) {
+                logger.info("MaxPrice OK for element" + element.toString());
+            }
+            else {result = false;}
+            if (element.getText().contains(releasedAfterYearFilterValue)) {
+                logger.info("Release Year OK for element" + element.toString());
+            }
+            else {result = false;}
+            if ((Integer.parseInt(diagonalFromFilterValue)<=getTVDiagonal(element.getText())) && (getTVDiagonal(element.getText())<=Integer.parseInt(diagonalToFilterValue))) {
+                logger.info("Manufacturer OK for element" + element.toString());
+            }
+            else {result = false;}
+        }
+        return result;
     }
 
 

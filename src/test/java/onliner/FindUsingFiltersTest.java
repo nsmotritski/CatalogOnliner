@@ -9,6 +9,7 @@ import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import webdriver.BaseTest;
 import webdriver.Browser;
+import webdriver.elements.BaseElement;
 
 import java.nio.charset.Charset;
 import java.util.ArrayList;

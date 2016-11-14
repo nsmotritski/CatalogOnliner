@@ -1,7 +1,11 @@
 package webdriver;
 
 import java.util.Date;
+import java.util.List;
+
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.remote.RemoteWebElement;
 import org.testng.Assert;
 
 import webdriver.elements.Label;
@@ -99,7 +103,15 @@ public abstract class BaseForm extends BaseEntity {
 		}
 	}
 
-    
+	/**
+	 * @return
+	 * @uml.property name="elements"
+	 * @return List<RemoteWebElement>
+	 */
+/*	public List<RemoteWebElement> getElements(By locator) {
+		List<RemoteWebElement> elements = browser.getDriver().findElements(locator);
+		return elements;
+	}*/
 	
 
 	

@@ -69,18 +69,7 @@ public abstract class BaseElement extends BaseEntity {
 		return element;
 	}
 
-	/**
-	 * @return
-	 * @uml.property name="elements"
-	 * @return List<RemoteWebElement>
-	 */
-/*	public List<BaseElement> getElements(By locator) {
-		List<BaseElement> elements = browser.getDriver().findElements(locator);
-		for (RemoteWebElement element: elements) {
-			waitForIsElementPresent();
-		}
-		return elements;
-	}*/
+
 
 	/**
 	 * @param elementToSet RemoteWebElement
