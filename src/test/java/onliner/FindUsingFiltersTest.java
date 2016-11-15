@@ -10,6 +10,7 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import webdriver.BaseTest;
+import webdriver.elements.Link;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -55,8 +56,9 @@ public class FindUsingFiltersTest extends BaseTest {
 
 
         logger.step(4);
+        browser.waitForListOfElements(".//div[@id='schema-products']//div[contains(@class,'title')]");
         List<WebElement> searchItemList = new ArrayList<WebElement>();
-        searchItemList = browser.getDriver().findElements(By.xpath(".//div[@id='schema-products']"));
+        searchItemList = browser.getDriver().findElements(By.xpath(".//div[@id='schema-products']//div[contains(@class,'title')]"));
         for (WebElement we: searchItemList) {
             logger.info(we.getText());
         }

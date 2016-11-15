@@ -16,6 +16,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import webdriver.elements.BaseElement;
@@ -199,13 +200,14 @@ public final class Browser {
 		}
 	}
 
-	
+/*	public void waitForListOfElements (List<WebElement> searchResults) {
+		for (WebElement webElement:searchResults) {
+			driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+			driver.findElement(webElement.);
+		}
+	}*/
 	
 
-
-
-	
-	
 	/**
 	 * maximizes the window
 	 * <p>
@@ -313,12 +315,5 @@ public final class Browser {
 
 	}
 
-	
-	
-	
-	
 
-	
-	
-	
 }

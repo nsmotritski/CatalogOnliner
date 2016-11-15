@@ -20,7 +20,11 @@ public class CatalogOnlinerTVs extends BaseForm {
     private TextBox releasedAfterYearFilter = new TextBox(By.xpath(".//*[@id='schema-filter']//input[@placeholder='2011']"),"Released after year");
     private Dropdown diagonalFromFilter = new Dropdown(By.xpath("//span[.='Диагональ']/../following-sibling::div/div/div/select[contains(@data-bind,'from')]"),"Diagonal min");
     private Dropdown diagonalToFilter = new Dropdown(By.xpath("//span[.='Диагональ']/../following-sibling::div/div/div/select[contains(@data-bind,\"to\")]"),"Diagonal max");
-    //private List<Label> searchResults = new Label(By.xpath(""));
+    private List<Link> searchResults;
+
+   /* public void getSearchResults (By by) {
+        searchResults = getElements(by);
+    }*/
 
 
     public CatalogOnlinerTVs() {
