@@ -19,7 +19,7 @@ public class Link extends BaseElement {
     }
 
     protected String getElementType() {
-        return getLoc("loc.label");
+        return getLoc("loc.link");
     }
 
 }

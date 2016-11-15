@@ -71,6 +71,14 @@ public abstract class BaseElement extends BaseEntity {
 		return element;
 	}
 
+	public List<WebElement> getElements(By locator) {
+		List<WebElement> elements = browser.getDriver().findElements(locator);
+		for (WebElement webElement:elements) {
+			waitForIsElementPresent();
+		}
+		return elements;
+	}
+
 
 
 	/**

@@ -108,10 +108,7 @@ public abstract class BaseForm extends BaseEntity {
 	 * @uml.property name="elements"
 	 * @return List<RemoteWebElement>
 	 */
-/*	public List<RemoteWebElement> getElements(By locator) {
-		List<RemoteWebElement> elements = browser.getDriver().findElements(locator);
-		return elements;
-	}*/
+
 	
 
 	

@@ -3,21 +3,37 @@ package onliner;
 import onliner.forms.CatalogOnlinerPage;
 import onliner.forms.CatalogOnlinerTVs;
 import onliner.forms.OnlinerHomePage;
-import org.codehaus.jackson.io.UTF8Writer;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
 import webdriver.BaseTest;
-import webdriver.Browser;
-import webdriver.elements.BaseElement;
 
-import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.List;
 
 public class FindUsingFiltersTest extends BaseTest {
-    @Parameters ({"maxPrice"})
+    int maxPrice;
+    String manufacturer;
+    int minReleaseYear;
+    int diagonalMin;
+    int diagonalMax;
+
+
+
+    @BeforeTest
+    @Parameters ({"maxPrice","manufacturer","minimumReleaseYear","diagonalMin","diagonalMax"})
+    public void beforeTest (int maximumPrice,String manufacturerValue,int minimumReleaseYear,int diagonalMinimum,int diagonalMaximum) {
+        maxPrice = maximumPrice;
+        manufacturer = manufacturerValue;
+        minReleaseYear = minimumReleaseYear;
+        diagonalMin = diagonalMinimum;
+        diagonalMax = diagonalMaximum;
+    }
+
+    @Test
     public void runTest() {
 
 
@@ -34,7 +50,7 @@ public class FindUsingFiltersTest extends BaseTest {
 
         logger.step(4);
         CatalogOnlinerTVs catalogOnlinerTVs = new CatalogOnlinerTVs();
-        catalogOnlinerTVs.applyFilters(1000, 2013, "390", "420");
+        catalogOnlinerTVs.applyFilters(maxPrice, minReleaseYear, diagonalMin + "0", diagonalMax + "0");
         logger.info("All Filters applied correctly");
 
 
