@@ -5,6 +5,8 @@ import java.lang.reflect.Field;
 
 import java.util.List;
 import java.util.concurrent.TimeUnit;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.junit.Assert;
 import org.openqa.selenium.By;
@@ -307,6 +309,15 @@ public abstract class BaseElement extends BaseEntity {
 		return false;
 	}
 
+	private static String getMatchingElementText (String text, String stringPattern) {
+		Pattern pattern = Pattern.compile(stringPattern);
+		Matcher matcher = pattern.matcher(text);
+		String result = "";
+		while (matcher.find()) {
+			result = matcher.group(1);
+		}
+		return result;
+	}
 	
 	
 	

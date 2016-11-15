@@ -7,6 +7,7 @@ import org.codehaus.jackson.io.UTF8Writer;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
+import org.testng.annotations.Parameters;
 import webdriver.BaseTest;
 import webdriver.Browser;
 import webdriver.elements.BaseElement;
@@ -16,7 +17,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FindUsingFiltersTest extends BaseTest {
+    @Parameters ({"maxPrice"})
     public void runTest() {
+
 
         logger.step(1);
         OnlinerHomePage onlinerHomePage = new OnlinerHomePage();

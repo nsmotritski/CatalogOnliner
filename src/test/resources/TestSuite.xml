@@ -3,6 +3,8 @@
 	
 	<test name="Functional Tests" preserve-order="true">
 		<classes>
+			<parameter name="manufacturer" value="Samsung"/>
+			<parameter name="maxPrice" value="1000"/>
  			<class name="onliner.FindUsingFiltersTest" />
         </classes>
 	</test>
