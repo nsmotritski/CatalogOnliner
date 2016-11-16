@@ -8,6 +8,7 @@ import java.util.concurrent.TimeUnit;
 import javax.naming.NamingException;
 
 
+import com.thoughtworks.selenium.CommandProcessor;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -200,12 +201,15 @@ public final class Browser {
 		}
 	}
 
-/*	public void waitForListOfElements (List<WebElement> searchResults) {
-		for (WebElement webElement:searchResults) {
+	public void waitForListOfElements (BaseElement baseElement,String locator) {
+		//form.wait()getUserWindow().$.active == 0
+		/*for (WebElement webElement:searchResults) {
 			driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
 			driver.findElement(webElement.);
-		}
-	}*/
+		}*/
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		baseElement.getElements(By.xpath(locator));
+	}
 	
 
 	/**
@@ -314,6 +318,7 @@ public final class Browser {
 		}
 
 	}
+
 
 
 }

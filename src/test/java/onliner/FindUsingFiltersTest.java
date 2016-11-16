@@ -56,7 +56,7 @@ public class FindUsingFiltersTest extends BaseTest {
 
 
         logger.step(4);
-        browser.waitForListOfElements(".//div[@id='schema-products']//div[contains(@class,'title')]");
+        browser.waitForListOfElements(catalogOnlinerTVs.searchResultsDiv,".//div[@id='schema-products']//div[contains(@class,'title')]");
         List<WebElement> searchItemList = new ArrayList<WebElement>();
         searchItemList = browser.getDriver().findElements(By.xpath(".//div[@id='schema-products']//div[contains(@class,'title')]"));
         for (WebElement we: searchItemList) {
